@@ -1,0 +1,23 @@
+<ion-view title="Dashboard">
+    <ion-content class="has-header padding">
+        <ion-refresher on-refresh="refresh()"></ion-refresher>
+
+        <div ng-show="!posts.length" class="text-center">
+            <h1>
+                Pull to Refresh
+            </h1>
+        </div>
+
+        <div class="card list" ng-repeat="p in posts">
+            <div class="item item-avatar-left">
+                <img ng-src="{{p.author.avatar_URL}}" alt="">
+                <h2>{{ p.author.nice_name}}</h2>
+                <p><a href="{{ p.author.URL}}">{{ p.author.URL}}</a></p>
+            </div>
+            <div class="item item-body">
+                <h1>{{ p.title }}</h1>
+                <div ng-bind-html="p.content"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
